@@ -107,7 +107,7 @@
 		</if>
 
 		<copy todir="${targetdir}/${_release}/${extsub}${extfile}">
-			<fileset dir="${taoj_local}/${repos}/code/${_folder}/${extpath}">
+			<fileset dir="../code/${_folder}/${extpath}">
 				<include name="**" />
 				<exclude name=".*" />
 			</fileset>
