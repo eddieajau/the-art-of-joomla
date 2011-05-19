@@ -34,7 +34,7 @@ class plgEditorsArtofEditorInstallerScript
 		// Display a nice installed message.
 		echo JText::sprintf(
 			'PLG_AOEDITOR_INSTALLED',
-			'1.0.3'
+			'1.0.5'
 		);
 	}
 }

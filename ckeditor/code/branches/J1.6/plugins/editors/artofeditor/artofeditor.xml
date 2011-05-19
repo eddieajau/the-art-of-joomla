@@ -5,8 +5,8 @@
 	group="editors"
 	method="upgrade">
 	<name>PLG_AOEDITOR_TITLE</name>
-	<version>1.0.4</version>
-	<creationDate>2011-01-07</creationDate>
+	<version>1.0.5</version>
+	<creationDate>19 May 2011</creationDate>
 	<author>Andrew Eddie</author>
 	<authorurl>http://www.theartofjoomla.com</authorurl>
 	<copyright>Copyright 2005 - 2011 New Life in IT Pty Ltd. All rights reserved</copyright>
