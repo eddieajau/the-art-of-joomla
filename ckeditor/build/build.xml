@@ -1,0 +1,184 @@
+<?xml version="1.0" ?>
+<!-- $Id: build.xml 487 2010-12-21 00:21:41Z eddieajau $ -->
+<project name="Artof Editor Build"
+	basedir="."
+	default="main">
+
+	<property file="/var/taoj/build.properties" override="true" />
+
+	<property
+		name="package"
+		value="artofeditor"
+		override="true" />
+
+	<property
+		name="repos"
+		value="ckeditor"
+		override="true" />
+
+	<property
+		name="targetdir"
+		value="."
+		override="true" />
+
+	<!--
+	Usage:
+	1. Build off the trunk
+	# phing -Dscmusr=username -Dscmpwd=password
+
+	2. Build from a branch (must be located in /code/branches/{release})
+	# phing -Dscmusr=username -Dscmpwd=password -Dbranch=1.0.1
+
+	3. Build and rename files with version
+	# phing -Dversion=1.0.1
+	-->
+
+	<!-- MAIN -->
+	<target name="main" description="Creates an extension build file">
+
+		<!-- Cleanup build area -->
+		<if>
+			<isset property="branch" />
+			<then>
+				<delete dir="${targetdir}/${branch}" />
+			</then>
+			<else>
+				<delete dir="${targetdir}/trunk.local" />
+			</else>
+		</if>
+
+		<!-- Plugin -->
+		<phingcall target="export">
+			<property name="extpath"	value="plugins/editors" />
+		</phingcall>
+
+		<exec command="chmod -R 775 *" dir="${targetdir}" />
+
+		<phingcall target="build" />
+
+	</target>
+
+	<target name="export" description="Checks out the extension">
+		<if>
+			<not>
+				<isset property="extsub" />
+			</not>
+			<then>
+				<property name="extsub" value="" />
+			</then>
+		</if>
+		<if>
+			<not>
+				<isset property="extfile" />
+			</not>
+			<then>
+				<property name="extfile" value="" />
+			</then>
+		</if>
+
+		<!-- Look for a release, otherwise use the trunk -->
+		<if>
+			<isset property="branch" />
+			<then>
+				<property name="_folder" value="branches/${branch}" />
+				<property name="_release" value="${branch}" />
+			</then>
+			<else>
+				<if>
+					<isset property="version" />
+					<then>
+						<property name="_folder" value="trunk" />
+						<property name="_release" value="${version}" />
+					</then>
+					<else>
+						<property name="_folder" value="trunk" />
+						<property name="_release" value="trunk.local" />
+					</else>
+				</if>
+			</else>
+		</if>
+		<if>
+			<not>
+				<available file="${targetdir}/${_release}/${extpath}/${extsub}" type="dir" />
+			</not>
+			<then>
+				<mkdir dir="${targetdir}/${_release}/${extsub}" />
+			</then>
+		</if>
+
+		<copy todir="${targetdir}/${_release}/${extsub}${extfile}">
+			<fileset dir="${taoj_local}/${repos}/code/${_folder}/${extpath}">
+				<include name="**" />
+				<exclude name=".*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build" description="Packages the extension for delivery">
+		<if>
+			<isset property="branch" />
+			<then>
+				<property name="package.version" value="${branch}" />
+			</then>
+			<else>
+				<if>
+					<isset property="branch" />
+					<then>
+						<property name="package.version" value="${branch}" />
+					</then>
+					<else>
+						<if>
+							<isset property="version" />
+							<then>
+								<property name="package.version" value="${version}" />
+							</then>
+							<else>
+								<property name="package.version" value="trunk.local" />
+							</else>
+						</if>
+
+					</else>
+				</if>
+			</else>
+		</if>
+
+		<if>
+			<available file="${targetdir}/${package.version}/admin/${package}.xml" type="file" />
+			<then>
+				<copy file="${targetdir}/${package.version}/admin/${package}.xml" tofile="${targetdir}/${package.version}/${package}.xml" overwrite="true" />
+				<delete file="${targetdir}/${package.version}/admin/${package}.xml" />
+			</then>
+		</if>
+
+		<!-- Copy the installer scripts up one -->
+		<if>
+			<available file="${targetdir}/${package.version}/admin/install/install.php" type="file" />
+			<then>
+				<copy file="${targetdir}/${package.version}/admin/install/install.php" tofile="${targetdir}/${package.version}/install/install.php" overwrite="true" />
+			</then>
+		</if>
+		<if>
+			<available file="${targetdir}/${package.version}/admin/install/uninstall.php" type="file" />
+			<then>
+				<copy file="${targetdir}/${package.version}/admin/install/uninstall.php" tofile="${targetdir}/${package.version}/install/uninstall.php" overwrite="true" />
+			</then>
+		</if>
+
+		<delete file="${targetdir}/${package}.${package.version}.tar.gz" />
+		
+		<tar destfile="${targetdir}/${package}.${package.version}.tar.gz" basedir="${targetdir}/${package.version}" includeEmptyDirs="0" compression="gzip">
+			<fileset dir="${targetdir}/${package.version}">
+				<include name="**" />
+				<exclude name=".DS_Store" />
+			</fileset>
+		</tar>
+
+		<zip destfile="${targetdir}/${package}.${package.version}.zip" basedir="${targetdir}/${package.version}">
+			<fileset dir="${targetdir}/${package.version}">
+				<include name="**" />
+				<exclude name=".DS_Store" />
+			</fileset>
+		</zip>
+	</target>
+
+</project>

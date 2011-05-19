@@ -1,0 +1,121 @@
+<install
+	version="1.5"
+	type="plugin"
+	group="editors"
+	method="upgrade">
+	<name>Editor - Artof Editor</name>
+	<version>1.0.4</version>
+	<creationDate>2011-01-07</creationDate>
+	<author>Andrew Eddie</author>
+	<authorurl>http://www.theartofjoomla.com</authorurl>
+	<copyright>Copyright 2005 - 2011 New Life in IT Pty Ltd. All rights reserved</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<description>CK Editor 3.4 for Joomla!</description>
+
+	<files>
+		<filename plugin="artofeditor">artofeditor.php</filename>
+		<folder>artofeditor</folder>
+	</files>
+
+	<params addpath="/plugins/editors/artofeditor/elements">
+		<param type="dummy" />
+
+		<param name="language" type="list" default="en"
+			label="PLG_AOEDITOR_LANGUAGE_LABEL" description="PLG_AOEDITOR_LANGUAGE_DESC">
+			<option value="af">PLG_AOEDITOR_L_AFRIKAANS</option>
+			<option value="ar">PLG_AOEDITOR_L_ARABIC</option>
+			<option value="eu">PLG_AOEDITOR_L_BASQUE</option>
+			<option value="bn">PLG_AOEDITOR_L_BENGALI_BANGLA</option>
+			<option value="bs">PLG_AOEDITOR_L_BOSNIAN</option>
+			<option value="bg">PLG_AOEDITOR_L_BULGARIAN</option>
+			<option value="ca">PLG_AOEDITOR_L_CATALAN</option>
+			<option value="zh-cn">PLG_AOEDITOR_L_CHINESE_SIMPLIFIED</option>
+			<option value="zh">PLG_AOEDITOR_L_CHINESE_TRADITIONAL</option>
+			<option value="hr">PLG_AOEDITOR_L_CROATIAN</option>
+			<option value="cs">PLG_AOEDITOR_L_CZECH</option>
+			<option value="da">PLG_AOEDITOR_L_DANISH</option>
+			<option value="nl">PLG_AOEDITOR_L_DUTCH</option>
+			<option value="en">PLG_AOEDITOR_L_ENGLISH</option>
+			<option value="en-au">PLG_AOEDITOR_L_ENGLISH_AUSTRALIA</option>
+			<option value="en-ca">PLG_AOEDITOR_L_ENGLISH_CANADIAN</option>
+			<option value="en-gb">PLG_AOEDITOR_L_ENGLISH_UNITED_KINGDOM</option>
+			<option value="eo">PLG_AOEDITOR_L_ESPERANTO</option>
+			<option value="et">PLG_AOEDITOR_L_ESTONIAN</option>
+			<option value="fo">PLG_AOEDITOR_L_FAROESE</option>
+			<option value="fi">PLG_AOEDITOR_L_FINNISH</option>
+			<option value="fr">PLG_AOEDITOR_L_FRENCH</option>
+			<option value="fr-ca">PLG_AOEDITOR_L_FRENCH_CANADA</option>
+			<option value="gl">PLG_AOEDITOR_L_GALICIAN</option>
+			<option value="de">PLG_AOEDITOR_L_GERMAN</option>
+			<option value="el">PLG_AOEDITOR_L_GREEK</option>
+			<option value="gu">PLG_AOEDITOR_L_GUJARATI</option>
+			<option value="he">PLG_AOEDITOR_L_HEBREW</option>
+			<option value="hi">PLG_AOEDITOR_L_HINDI</option>
+			<option value="hu">PLG_AOEDITOR_L_HUNGARIAN</option>
+			<option value="is">PLG_AOEDITOR_L_ICELANDIC</option>
+			<option value="it">PLG_AOEDITOR_L_ITALIAN</option>
+			<option value="ja">PLG_AOEDITOR_L_JAPANESE</option>
+			<option value="km">PLG_AOEDITOR_L_KHMER</option>
+			<option value="ko">PLG_AOEDITOR_L_KOREAN</option>
+			<option value="lv">PLG_AOEDITOR_L_LATVIAN</option>
+			<option value="lt">PLG_AOEDITOR_L_LITHUANIAN</option>
+			<option value="ms">PLG_AOEDITOR_L_MALAY</option>
+			<option value="mn">PLG_AOEDITOR_L_MONGOLIAN</option>
+			<option value="no">PLG_AOEDITOR_L_NORWEGIAN</option>
+			<option value="nb">PLG_AOEDITOR_L_NORWEGIAN_BOKMAL</option>
+			<option value="fa">PLG_AOEDITOR_L_PERSIAN</option>
+			<option value="pl">PLG_AOEDITOR_L_POLISH</option>
+			<option value="pt-br">PLG_AOEDITOR_L_PORTUGUESE_BRAZIL</option>
+			<option value="pt">PLG_AOEDITOR_L_PORTUGUESE_PORTUGAL</option>
+			<option value="ro">PLG_AOEDITOR_L_ROMANIAN</option>
+			<option value="ru">PLG_AOEDITOR_L_RUSSIAN</option>
+			<option value="sr">PLG_AOEDITOR_L_SERBIAN_CYRILLIC</option>
+			<option value="sr-latn">PLG_AOEDITOR_L_SERBIAN_LATIN</option>
+			<option value="sk">PLG_AOEDITOR_L_SLOVAK</option>
+			<option value="sl">PLG_AOEDITOR_L_SLOVENIAN</option>
+			<option value="es">PLG_AOEDITOR_L_SPANISH</option>
+			<option value="sv">PLG_AOEDITOR_L_SWEDISH</option>
+			<option value="th">PLG_AOEDITOR_L_THAI</option>
+			<option value="tr">PLG_AOEDITOR_L_TURKISH</option>
+			<option value="uk">PLG_AOEDITOR_L_UKRAINIAN</option>
+			<option value="vi">PLG_AOEDITOR_L_VIETNAMESE</option>
+		</param>
+
+		<param name="toolbar" type="list" default="Full"
+			label="PLG_AOEDITOR_TOOLBAR_LABEL" description="PLG_AOEDITOR_TOOLBAR_DESC">
+			<option value="Full">PLG_AOEDITOR_OPTION_FULL</option>
+			<option value="Basic">PLG_AOEDITOR_OPTION_BASIC</option>
+			<option value="Custom1">PLG_AOEDITOR_OPTION_CUSTOM_1</option>
+			<option value="Custom2">PLG_AOEDITOR_OPTION_CUSTOM_2</option>
+		</param>
+
+		<param name="toolbar_ft" type="list" default="Full"
+			label="PLG_AOEDITOR_TOOLBAR_FT_LABEL" description="PLG_AOEDITOR_TOOLBAR_FT_DESC">
+			<option value="Full">PLG_AOEDITOR_OPTION_FULL</option>
+			<option value="Basic">PLG_AOEDITOR_OPTION_BASIC</option>
+			<option value="Custom1">PLG_AOEDITOR_OPTION_CUSTOM_1</option>
+			<option value="Custom2">PLG_AOEDITOR_OPTION_CUSTOM_2</option>
+		</param>
+
+		<param name="toolbar_Custom1" type="textarea" cols="30"
+			rows="5" label="PLG_AOEDITOR_TOOLBAR_CUSTOM1_LABEL"
+			description="PLG_AOEDITOR_TOOLBAR_CUSTOM_DESC" />
+
+		<param name="toolbar_Custom2" type="textarea" cols="30"
+			rows="5" label="PLG_AOEDITOR_TOOLBAR_CUSTOM2_LABEL"
+			description="PLG_AOEDITOR_TOOLBAR_CUSTOM_DESC" />
+
+		<param type="help" default="PLG_AOEDITOR_CKEDITOR_HELP" style="notice" />
+
+		<param name="skin" type="list" default="v2" label="PLG_AOEDITOR_SKIN_LABEL"
+			description="PLG_AOEDITOR_SKIN_DESC">
+			<option value="kama">PLG_AOEDITOR_OPTION_kama</option>
+			<option value="office2003">PLG_AOEDITOR_OPTION_office2003</option>
+			<option value="v2">PLG_AOEDITOR_OPTION_v2</option>
+		</param>
+
+		<param name="bgcolor" type="text" default="#6B6868"
+			label="PLG_AOEDITOR_BGCOLOR_LABEL" description="PLG_AOEDITOR_BGCOLOR_DESC" />
+
+	</params>
+</install>

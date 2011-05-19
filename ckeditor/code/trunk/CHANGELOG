@@ -1,0 +1,52 @@
+0. Metadata
+-----------
+File version:	$Id: CHANGELOG 18484 2010-08-17 00:16:24Z eddieajau $
+Copyright:		Copyright (C) 2005 - 2011 New Life in It Pty Ltd. All rights reserved.
+License:		GNU General Public License version 2 or later.
+
+1. Copyright and disclaimer
+---------------------------
+This application is opensource software released under the GPL.  Please
+see source code and the LICENSE file
+
+
+2. Changelog
+------------
+This is a non-exhaustive (but still near complete) changelog for
+Joomla! 1.6, including alpha and beta versions.
+Our thanks to all those people who've contributed bug reports and
+code fixes.
+
+Legend:
+
+* -> Security Fix
+# -> Issue Fix
+$ -> Language fix or change
++ -> Addition
+^ -> Change
+- -> Removed
+! -> Note
+
+----- Released 1.0.4 7-Jan-2011 -----
+
+06-Jan-2011 Andrew Eddie
+ # Fixed button bug in 1.6 version. 
+ ^ Upgrade to CKEditor 3.5
+
+22-Aug-2010 Andrew Eddie
+ + Added .clr style to editor css.
+ ^ Upgrade to CKEditor 3.4
+ # Fixed bug in link to documentation page.
+
+----- Released 1.0.2 20-Aug-2010 -----
+
+20-Aug-2010 Andrew Eddie
+ + Added stock icons by http://dellustrations.com
+ # Fixed bug in link to documentation page.
+
+----- Released 1.0.1 18-Aug-2010 -----
+
+17-Aug-2010 Andrew Eddie
+ ^ Changed name of background param to "bgcolor".
+ + Added style for dashed read more and page break HR's.
+ ^ Rename to Artof Editor to allow for acceptance into JED.
