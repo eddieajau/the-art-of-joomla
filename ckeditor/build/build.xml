@@ -173,6 +173,8 @@
 			</fileset>
 		</tar>
 
+		<delete file="${targetdir}/${package}.${package.version}.zip" />
+
 		<zip destfile="${targetdir}/${package}.${package.version}.zip" basedir="${targetdir}/${package.version}">
 			<fileset dir="${targetdir}/${package.version}">
 				<include name="**" />
